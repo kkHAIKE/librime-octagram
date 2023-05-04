@@ -9,6 +9,7 @@ if(BUILD_SHARED_LIBS)
     PROPERTIES
     POSITION_INDEPENDENT_CODE ON)
 endif()
+target_link_libraries(rime-octagram-objs Pal::Sigslot glog::glog)
 
 set(plugin_name rime-octagram PARENT_SCOPE)
 set(plugin_objs $<TARGET_OBJECTS:rime-octagram-objs> PARENT_SCOPE)

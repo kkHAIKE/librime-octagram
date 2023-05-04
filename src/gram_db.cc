@@ -1,5 +1,4 @@
 #include "gram_db.h"
-#include <boost/algorithm/string.hpp>
 #include <cmath>
 #include <darts.h>
 #include <rime/resource.h>
@@ -28,7 +27,7 @@ bool GramDb::Load() {
     return false;
   }
 
-  if (!boost::starts_with(string(metadata_->format), kGrammarFormatPrefix)) {
+  if (!std::string_view(metadata_->format).starts_with(kGrammarFormatPrefix)) {
     LOG(ERROR) << "invalid metadata.";
     Close();
     return false;
